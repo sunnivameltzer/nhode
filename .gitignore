@@ -1,0 +1,42 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+
+# Ignore data files
+*.csv
+
+# Ignore image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.svg
+
+# Ignore video files
+*.mp4
+
+# Ignore document files
+*.pdf
+*.doc
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+*.out
+*.err
+logs/
+
+# Ignore model checkpoints
+*.eqx
+*.json
+*.npy
+*.npz

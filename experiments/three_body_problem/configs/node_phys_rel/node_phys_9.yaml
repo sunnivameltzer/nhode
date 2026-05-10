@@ -1,0 +1,33 @@
+# Configuration for training NODE phys model
+# Usage: python run_training.py --config configs/node_phys_0.yaml
+
+model: node_phys
+epochs: 1200
+batch_size: 64
+lr: 0.001
+lr_decay: "exponential_decay"
+lr_decay_rate: 0.95
+lr_decay_epochs: 10
+
+# Model architecture
+hidden_dim: 128
+depth: 4
+relative_distances: true
+
+# System parameters
+mass: [1.0, 1.0, 1.0]
+G: 1.0
+eps: 0.6
+
+# Data generation
+n_trajectories: 2000
+trajectory_length: 3.0
+trajectory_steps: 1001
+train_fraction: 0.85
+
+# Saving
+savedir: "checkpoints/node_phys_rel/"
+model_name: "three_body_problem_node_phys"
+
+# Misc
+seed: 9

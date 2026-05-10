@@ -1,0 +1,33 @@
+# Configuration for training HNN Total Energy model
+# Usage: python run_training.py --config configs/hnn_tot_default.yaml
+
+model: hnn_pot
+epochs: 1200
+batch_size: 64
+lr: 0.001
+lr_decay: "exponential_decay"
+lr_decay_rate: 0.95
+lr_decay_epochs: 10
+
+# Model architecture
+hidden_dim: 128
+depth: 4
+
+# System parameters
+masses: [1.0, 1.2]
+spring_constants: [3.0, 5.0]
+rest_lengths: [0.4, 0.6]
+
+# Data generation
+n_trajectories: 4000
+trajectory_length: 1.0
+trajectory_steps: 101
+train_fraction: 0.85
+
+# Saving
+savedir: "checkpoints/hnn_pot/"
+model_name: "two_mass_spring_hnn_pot"
+
+# Misc
+seed: 0
+

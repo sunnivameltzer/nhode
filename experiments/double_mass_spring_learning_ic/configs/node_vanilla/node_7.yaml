@@ -1,0 +1,39 @@
+# Configuration for training Neural ODE model
+# Usage: python run_training.py --config configs/node_0.yaml
+
+model: node_vanilla
+epochs: 1200
+batch_size: 64
+lr_hnn: 0.001
+lr_enc: 0.003
+lr_decay: "exponential_decay"
+lr_decay_rate: 0.95
+lr_decay_epochs: 10
+
+# Model architecture
+hidden_dim: 128
+depth: 4
+
+# Encoder architecture
+conditioning_steps: 20
+encoder_hidden_dim: 64
+encoder_depth: 3
+
+# System parameters
+masses: [1.0, 1.2]
+spring_constants: [3.0, 5.0]
+rest_lengths: [0.4, 0.6]
+
+# Data generation
+n_trajectories: 4000
+trajectory_length: 1.0
+trajectory_steps: 101
+train_fraction: 0.85
+
+# Saving
+savedir: "checkpoints/node_vanilla/"
+model_name: "two_mass_spring_node_vanilla"
+
+# Misc
+seed: 7
+
