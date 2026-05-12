@@ -33,14 +33,10 @@ def zero_total_momentum(v, masses):
     """
     Adjust velocities to ensure zero center-of-mass momentum.
 
-    This enforces conservation of momentum by subtracting the
-    center-of-mass velocity from each particle.
-
     Parameters
     ----------
     v : array [..., 3, 3]
-        Velocities for 3 masses in 3D. For example, shape (N, 3, 3)
-        with axes = (batch, body, xyz).
+        Velocities for 3 masses in 3D.
     masses : array [3]
         Mass values for each particle.
 
