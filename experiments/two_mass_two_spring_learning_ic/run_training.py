@@ -33,9 +33,6 @@ def zero_total_momentum(v, masses):
     """
     Adjust velocities to ensure zero center-of-mass momentum.
 
-    This enforces conservation of momentum by subtracting the
-    center-of-mass velocity from each particle.
-
     Parameters
     ----------
     v : array [..., 3, 3]
