@@ -32,22 +32,6 @@ class Config:
 def zero_total_momentum(v, masses):
     """
     Adjust velocities to ensure zero center-of-mass momentum.
-
-    This enforces conservation of momentum by subtracting the
-    center-of-mass velocity from each particle.
-
-    Parameters
-    ----------
-    v : array [..., 3, 3]
-        Velocities for 3 masses in 3D. For example, shape (N, 3, 3)
-        with axes = (batch, body, xyz).
-    masses : array [3]
-        Mass values for each particle.
-
-    Returns
-    -------
-    v_adjusted : array [..., 3, 3]
-        Velocities with zero total momentum (same shape as input).
     """
     M = jnp.sum(masses)
     V_cm = jnp.tensordot(masses, v, axes=(0, -2)) / M  # (..., 3)
@@ -116,7 +100,7 @@ def initialize_model(config, key):
     elif config.model == "node_phys":
         model = NeuralODE(
             key=key,
-            input_dim=4,   # Full state input
+            input_dim=4,    # Full state input
             output_dim=2,   # Momentum derivatives output (dp0/dt, dp1/dt)
             hidden_dim=config.hidden_dim,
             depth=config.depth,
@@ -128,7 +112,7 @@ def initialize_model(config, key):
     elif config.model == "node_vanilla":
         model = NeuralODE(
             key=key,
-            input_dim=4,   # Full state input
+            input_dim=4,    # Full state input
             output_dim=4,   # Full state derivatives output (dx0/dt, dx1/dt, dp0/dt, dp1/dt)
             hidden_dim=config.hidden_dim,
             depth=config.depth,
@@ -149,9 +133,6 @@ def initialize_model(config, key):
 def save_losses(losses: dict, dir_name: str, model_name: str):
     """
     Saves losses to: dir_name / f"{model_name}_losses.npz"
-
-    losses: e.g. {"train": [...], "val": [...], "lr": [...] (optional)}
-    Uses jax.numpy for array creation; uses numpy for file I/O.
     """
     out_dir = Path(dir_name)
     out_dir.mkdir(parents=True, exist_ok=True)
