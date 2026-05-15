@@ -94,7 +94,7 @@ def generate_training_data(config, system_params):
     solve_batch = integrate_vector_field(ts=ts, term=vector_field_triangular_nonlinear_mass_spring_2d)
     ys_all = solve_batch(model=None, params=system_params, y0s=y0s)
     
-    ys_can = to_canonical(ys_all, system_params.m0, system_params.m1, system_params.m2) #FIXME: I think this should be removed, but doesnt affect training since we have used masses=1
+    ys_can = to_canonical(ys_all, system_params.m0, system_params.m1, system_params.m2)
     
     key, subkey = jax.random.split(key)
     train_all, val_all = split_train_val(subkey, ys_can, config.train_fraction)
