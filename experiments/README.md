@@ -65,9 +65,11 @@ The numbered configuration files correspond to independent random seeds (`hnn_po
 
 ### Running on a cluster (Slurm)
 
-A template Slurm submission script is provided at [`docs/slurm_example.slurm`](../docs/slurm_example.slurm). Before using it, set `PROJECT_ROOT` and `CONDA_ENV` to match your local setup, then submit from the repository root:
+A template Slurm submission script is provided at [`docs/slurm_example.slurm`](../docs/slurm_example.slurm). Before using it, set `PROJECT_ROOT` and `CONDA_ENV` to match your local setup, and create a folder for the slurm-XXX.err and slurm-XXX.out files. Then submit from the repository root:
 
 ```bash
+cd nhode
+mkdir -p logs
 sbatch docs/slurm_example.slurm
 ```
 

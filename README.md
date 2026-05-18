@@ -46,20 +46,15 @@ cd experiments/<experiment_name>
 python run_training.py --config configs/<model_variant>/<config_file>.yaml
 ```
 
-For example, to train the NHODE potential-energy model on the three-body problem (seed 0, relative coordinates):
-
-```bash
-cd experiments/three_body_problem_3d
-python run_training.py --config configs/hnn_pot_rel/hnn_pot_0.yaml
-```
-
 The configuration files specify training hyperparameters, model architecture, data generation settings, and the output checkpoint directory. See any `.yaml` file under `configs/` for an example.
 
 ### Running on a cluster (Slurm)
 
-An example Slurm submission script is provided in [docs/slurm_example.slurm](docs/slurm_example.slurm). Change the `PROJECT_ROOT` and `CONDA_ENV` variables before submitting:
+An example Slurm submission script is provided in [docs/slurm_example.slurm](docs/slurm_example.slurm). Change the `PROJECT_ROOT` and `CONDA_ENV` variables, and create a folder for the slurm-XXX.err and slurm-XXX.out files before submitting:
 
 ```bash
+cd nhode
+mkdir -p logs
 sbatch docs/slurm_example.slurm
 ```
 
