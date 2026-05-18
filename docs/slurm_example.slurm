@@ -9,8 +9,6 @@
 #SBATCH --output=logs/slurm-%j.out
 #SBATCH --error=logs/slurm-%j.err
 
-set -euo pipefail
-
 # ---------------------------------------------------------------------
 # Example Slurm script for running one NHODE training job.
 #
@@ -24,12 +22,10 @@ set -euo pipefail
 PROJECT_ROOT="$HOME/nhode"
 CONDA_ENV="nhode"
 
-mkdir -p "$PROJECT_ROOT/logs"
-
-source "$HOME/miniforge3/etc/profile.d/conda.sh"
+. "$HOME/miniforge3/etc/profile.d/conda.sh"
 conda activate "$CONDA_ENV"
 
-cd "$PROJECT_ROOT/experiments/double_mass_spring"        # Or replace double_mass_spring with one of the other experiments
+cd "$PROJECT_ROOT/experiments/two_mass_two_spring_1d"        # Or replace "two_mass_two_spring_1d" with one of the other experiments
 
 echo "==================================================="
 echo "STARTING AT $(date)"
