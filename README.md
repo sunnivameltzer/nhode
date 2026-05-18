@@ -27,7 +27,7 @@ The code requires Python ≥ 3.9.6 and is based on [JAX](https://github.com/goog
 ### Using conda
 
 ```bash
-conda create -n nhode python=3.10
+conda create -n nhode python=3.9.6
 conda activate nhode
 pip install -r requirements.txt
 ```
