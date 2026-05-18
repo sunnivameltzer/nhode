@@ -1,4 +1,3 @@
-# Python 3.9.6
 jax==0.4.30
 diffrax==0.6.1
 equinox==0.11.10
