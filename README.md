@@ -130,8 +130,8 @@ If you use this code in your work, please cite the paper and, if applicable, the
 ---
 ``` -->
 
-
+<!-- 
 ## Contact and issues
 
 For questions about the code or to report a bug, please contact sunniva.meltzer@sintef.no.
-
+ -->
